@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Health Report</title>
+  </head>
+  <body>
+    <h1>📝 Health Report</h1>
+    <pre id="report"></pre>
+
+    <button onclick="window.print()">Download PDF</button>
+
+    <script>
+      const r = JSON.parse(localStorage.getItem("lastHealthResult"));
+      document.getElementById("report").textContent = r
+        ? JSON.stringify(r, null, 2)
+        : "No report available.";
+    </script>
+  </body>
+</html>
