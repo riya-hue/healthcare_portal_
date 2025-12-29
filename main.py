@@ -1,20 +1,38 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-import numpy as np
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
+import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
+# -------------------------------------------------
+# App initialization
+# -------------------------------------------------
 app = FastAPI(title="Heart Disease Prediction API")
+
+# Serve static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# -------------------------------------------------
+# Redirect root to index.html
+# -------------------------------------------------
+@app.get("/")
+def root():
+    return RedirectResponse(url="/static/index.html")
+
+# -------------------------------------------------
+# ML Model
+# -------------------------------------------------
 X = np.array([
     [63,1,3,145,233,1,0,150,0,2.3,0,0,1],
     [37,1,2,130,250,0,1,187,0,3.5,0,0,2],
@@ -52,20 +70,14 @@ y = np.array([
     1,1,1,1,0,0,1,0,0,1,
     0,1,1,0,1,1,0,0,0,1,
     0,1,1,0,0,1,0,1,0,0
-])  # 1 = Heart Disease, 0 = No Disease
+])
 
-
-model = RandomForestClassifier(
-    n_estimators=40,
-    max_depth=6,
-    random_state=42
-)
+model = RandomForestClassifier(n_estimators=40, max_depth=6, random_state=42)
 model.fit(X, y)
 
 # -------------------------------------------------
-# Request Body
+# Request model
 # -------------------------------------------------
-
 class HeartData(BaseModel):
     age: float
     sex: float
@@ -81,11 +93,9 @@ class HeartData(BaseModel):
     ca: float
     thal: float
 
-
-@app.get("/")
-def home():
-    return {"status": "Heart Disease API running"}
-
+# -------------------------------------------------
+# API endpoint
+# -------------------------------------------------
 @app.post("/analyze_heart")
 def analyze_heart(data: HeartData):
     features = np.array([[
@@ -101,3 +111,4 @@ def analyze_heart(data: HeartData):
         "heart_disease": "Yes" if prediction == 1 else "No",
         "risk_probability": round(probability * 100, 2)
     }
+
