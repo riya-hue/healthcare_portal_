@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Disease Checkup</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <script src="config.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <a href="index.html" class="logo">
+        <i class="bx bxs-basket"></i>EL Care
+      </a>
+
+      <div class="bx bx-menu" id="menu-icon"></div>
+
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="accessibility.html">Accessibility</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: 20px">
+        <a href="blog.html" class="profile">
+          <img
+            src="https://img.icons8.com/color/48/000000/blog.png"
+            alt="Blog"
+            style="width: 32px; height: 32px"
+          />
+          <span>Blogs</span>
+        </a>
+
+        <a href="health.html" class="profile">
+          <img src="logo.jpg" alt="Profile" />
+          <span>Health Checkup</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Health Section -->
+    <section class="home">
+      <div class="home-content">
+        <span class="tagline">AI Health Check</span>
+        <h1 class="title">🩺 Heart Disease Risk Assessment</h1>
+        <p class="description">
+          Enter your health details below to receive an instant AI-based heart
+          disease risk analysis.
+        </p>
+
+        <form id="heartForm" class="health-profile">
+          <input
+            name="age"
+            type="number"
+            placeholder="Age"
+            class="navy-input"
+            required
+          />
+          <input
+            name="sex"
+            type="number"
+            placeholder="Sex (1 = Male, 0 = Female)"
+            required
+          />
+          <input
+            name="cp"
+            type="number"
+            placeholder="Chest Pain Type"
+            required
+          />
+          <input
+            name="trestbps"
+            type="number"
+            placeholder="Resting Blood Pressure"
+            required
+          />
+          <input
+            name="chol"
+            type="number"
+            placeholder="Cholesterol"
+            class="navy-input"
+            required
+          />
+          <input
+            name="fbs"
+            type="number"
+            placeholder="Fasting Blood Sugar"
+            required
+          />
+          <input
+            name="restecg"
+            type="number"
+            placeholder="ECG Result"
+            required
+          />
+          <input
+            name="thalach"
+            type="number"
+            placeholder="Max Heart Rate"
+            required
+          />
+          <input
+            name="exang"
+            type="number"
+            placeholder="Exercise Induced Angina"
+            required
+          />
+          <input
+            name="oldpeak"
+            type="number"
+            step="0.1"
+            placeholder="Oldpeak"
+            required
+          />
+          <input name="slope" type="number" placeholder="Slope" required />
+          <input
+            name="ca"
+            type="number"
+            placeholder="Number of Major Vessels"
+            required
+          />
+          <input name="thal" type="number" placeholder="Thal" required />
+
+          <button type="submit" class="submit-btn">
+            Analyze Heart Disease
+          </button>
+        </form>
+
+        <pre id="result"></pre>
+      </div>
+    </section>
+
+    <!-- Causes Section -->
+    <section
+      class="causes-section"
+      style="padding: 30px; background-color: #f0f4ff; border-radius: 15px"
+    >
+      <h2
+        class="causes-title"
+        style="text-align: center; color: #003366; margin-bottom: 25px"
+      >
+        Major Causes of Heart Disease
+      </h2>
+
+      <div
+        class="causes-container"
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 15px;
+        "
+      >
+        <div
+          class="cause-box"
+          style="
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #000080;
+            transition: transform 0.3s;
+          "
+        >
+          <a
+            href="https://www.heart.org/en/health-topics/high-blood-pressure/health-threats-from-high-blood-pressure"
+            target="_blank"
+            style="text-decoration: none; color: #000080"
+          >
+            High Blood Pressure
+          </a>
+        </div>
+
+        <div
+          class="cause-box"
+          style="
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #000080;
+            transition: transform 0.3s;
+          "
+        >
+          <a
+            href="https://www.mayoclinic.org/diseases-conditions/high-blood-cholesterol/symptoms-causes/syc-20350800"
+            target="_blank"
+            style="text-decoration: none; color: #000080"
+          >
+            High Cholesterol
+          </a>
+        </div>
+
+        <div
+          class="cause-box"
+          style="
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #000080;
+            transition: transform 0.3s;
+          "
+        >
+          <a
+            href="https://www.betterhealth.vic.gov.au/health/healthyliving/smoking-and-heart-disease"
+            target="_blank"
+            style="text-decoration: none; color: #000080"
+          >
+            Smoking
+          </a>
+        </div>
+
+        <div
+          class="cause-box"
+          style="
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #000080;
+            transition: transform 0.3s;
+          "
+        >
+          <a
+            href="https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-your-heart.html"
+            target="_blank"
+            style="text-decoration: none; color: #000080"
+          >
+            Diabetes
+          </a>
+        </div>
+
+        <div
+          class="cause-box"
+          style="
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #000080;
+            transition: transform 0.3s;
+          "
+        >
+          <a
+            href="https://www.hopkinsmedicine.org/health/wellness-and-prevention/weight-a-silent-heart-risk"
+            target="_blank"
+            style="text-decoration: none; color: #000080"
+          >
+            Obesity
+          </a>
+        </div>
+
+        <div
+          class="cause-box"
+          style="
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #000080;
+            transition: transform 0.3s;
+          "
+        >
+          <a
+            href="https://www.physio-pedia.com/Physical_Activity_and_Cardiovascular_Disease"
+            target="_blank"
+            style="text-decoration: none; color: #000080"
+          >
+            Physical Inactivity
+          </a>
+        </div>
+
+        <div
+          class="cause-box"
+          style="
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #000080;
+            transition: transform 0.3s;
+          "
+        >
+          <a
+            href="https://www.heart.org/en/news/2020/02/04/chronic-stress-can-cause-heart-trouble"
+            target="_blank"
+            style="text-decoration: none; color: #000080"
+          >
+            Chronic Stress
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <a href="dashboard.html" class="btn">➡ View Health Dashboard</a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
