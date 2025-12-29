@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Accessibility Mode</title>
+
+    <style>
+      body {
+        background: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        text-align: center;
+        padding: 30px;
+        border: 2px solid #fff;
+        border-radius: 12px;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 22px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .help-section {
+        margin-top: 30px;
+        text-align: left;
+        font-size: 20px;
+      }
+
+      .help-section h2 {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      .help-box {
+        background: #111;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      button {
+        font-size: 22px;
+        padding: 12px 25px;
+        background: #1e90ff;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background: #0b6fc2;
+      }
+
+      strong {
+        color: #00bfff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>♿ Elderly Accessibility Mode</h1>
+
+      <p>
+        High-contrast display, large fonts, and simplified layout designed
+        especially for senior citizens.
+      </p>
+
+      <button onclick="speak()">🔊 Voice Assist</button>
+
+      <!-- Assistance Section -->
+      <div class="help-section">
+        <h2>📞 Need Further Assistance?</h2>
+
+        <div class="help-box">
+          <strong>Elderline (National Helpline for Senior Citizens)</strong
+          ><br />
+          📱 <strong>14567</strong> (Toll-Free)<br />
+          🕗 Available all 7 days, 8:00 AM – 8:00 PM<br />
+          Provides support for doctors, hospitals, government schemes, emotional
+          help, and rescue services in coordination with police and health
+          departments.
+        </div>
+
+        <div class="help-box">
+          <strong>HelpAge India – Elder Helpline</strong><br />
+          📱 <strong>1800-180-1253</strong><br />
+          NGO supporting disadvantaged elderly with healthcare, shelter, and
+          age-care services.
+        </div>
+
+        <div class="help-box">
+          <strong>Ayushman Bharat (PM-JAY) Helpline</strong><br />
+          📱 <strong>14555</strong> or <strong>1800-110-770</strong><br />
+          Information about government health insurance providing up to ₹5 lakh
+          coverage annually for eligible families and senior citizens.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function speak() {
+        const msg = new SpeechSynthesisUtterance(
+          "Welcome to EL Care. If you need help, contact Elderline at 14567. Use Health Checkup to analyze your health."
+        );
+        msg.rate = 0.9;
+        speechSynthesis.speak(msg);
+      }
+    </script>
+  </body>
+</html>
