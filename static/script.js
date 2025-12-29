@@ -1,7 +1,7 @@
 console.log("EL Care loaded");
 
-// IMPORTANT: after deployment, replace with your Vercel backend URL
-const BACKEND_URL = "https://healthcare-portal.vercel.app";
+// Backend is SAME server → no URL needed
+const BACKEND_URL = "";
 
 // Convert form data to JSON
 function toJSON(form) {
@@ -38,11 +38,14 @@ async function submitForm(form) {
   }
 }
 
-// Attach submit event to the form
-const heartForm = document.getElementById("heartForm");
-if (heartForm) {
-  heartForm.onsubmit = (e) => {
-    e.preventDefault();
-    submitForm(e.target);
-  };
-}
+// Attach submit event
+document.addEventListener("DOMContentLoaded", () => {
+  const heartForm = document.getElementById("heartForm");
+  if (heartForm) {
+    heartForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      submitForm(e.target);
+    });
+  }
+});
+
