@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Health Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <h1>📊 Health Dashboard</h1>
+      <div id="data"></div>
+      <a href="health.html">🩺 Check Heart Disease Again</a>
+    </div>
+
+    <script>
+      const d = JSON.parse(localStorage.getItem("lastHealthResult"));
+
+      document.getElementById("data").innerHTML = d
+        ? `
+        <div class="card">
+          <p><b>🩺 Condition Checked:</b> ${d.type}</p>
+          <p><b>⚠️ Risk:</b> ${d.heart_disease}</p>
+          <p><b>📈 Risk Probability:</b> ${d.risk_probability}%</p>
+          <p><b>⏰ Checked On:</b> ${d.time}</p>
+        </div>
+      `
+        : `
+        <div class="no-data">
+          No health data available yet. Complete a Heart Disease checkup to view insights.
+        </div>
+      `;
+    </script>
+  </body>
+</html>
